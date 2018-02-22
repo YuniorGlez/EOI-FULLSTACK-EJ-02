@@ -57,12 +57,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio1()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType1('01')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -92,12 +92,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio1()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType1('02')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -127,12 +127,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio1()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType1('03')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -192,12 +192,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio3()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType2('04')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -255,12 +255,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio3()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType2('05')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -331,12 +331,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio3()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType3('06')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -353,7 +353,9 @@
                         <p class="mb-4">Esta vez recibirás un array con las tres personas. Y tu función deberá de validar cada persona por
                             separado. En caso de que sea un usuario válido por lo que hemos definido en el ejercicio06 entonces
                             lo guardarás dentro de un array. Antes de guardarlo en el array, le crearás el atributo id :
-                            number con un identificador único para él (usa su posición en el array incrementada en 1). Una vez hayas introducido a los usuarios que eran válidos y comprobados los que no son válidos tu función deberá devolver un Objeto con la siguiente forma : 
+                            number con un identificador único para él (usa su posición en el array incrementada en 1). Una
+                            vez hayas introducido a los usuarios que eran válidos y comprobados los que no son válidos tu
+                            función deberá devolver un Objeto con la siguiente forma :
                         </p>
                         <pre>
                             {
@@ -368,7 +370,8 @@
                             }
                         </pre>
                         <p class="mt-3">
-                            De manera, que si pulsamos varias veces en el botón de iniciar con nuevos datos de personas, se irán mostran todos los nuevos usuarios .
+                            De manera, que si pulsamos varias veces en el botón de iniciar con nuevos datos de personas, se irán mostran todos los nuevos
+                            usuarios .
                         </p>
 
                     </p>
@@ -470,12 +473,12 @@
                         </div>
                     </div>
                     <p class="lead mt-3">
-                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicio3()" role="button">Iniciar</a>
+                        <a class="btn btn-primary btn-lg" href="#" onclick="pruebaEjercicioType3('07')" role="button">Iniciar</a>
                     </p>
 
                     <hr class="my-4">
                     <div class="result-zone">
-                        <div id="results">
+                        <div class="results">
 
                         </div>
                     </div>
@@ -489,26 +492,94 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        var firstPersonElement = document.getElementById('first');
-        var secondPersonElement = document.getElementById('second');
-        var thirdPersonElement = document.getElementById('third');
-        var resultsEj01Element = document.getElementById('results01');
-        var resultsEj02Element = document.getElementById('results02');
-        var resultsEj03Element = document.getElementById('results03');
-        var resultsEj04Element = document.getElementById('results04');
-        var resultsEj05Element = document.getElementById('results05');
-        var resultsEj06Element = document.getElementById('results06');
-        var resultsEj07Element = document.getElementById('results07');
-        var resultsEj08Element = document.getElementById('results08');
-        var resultsEj09Element = document.getElementById('results09');
-        var resultsEj10Element = document.getElementById('results10');
+        function pruebaEjercicioType1(number) {
 
-        function pruebaEjercicio1() {
+            var email = document.querySelector('#ej-02-' + number + ' input[name="email"]').value;
+
+            var resultsZone = document.querySelector('#ej-02-' + number + ' .results');
+            var result;
+            if (number == '01') {
+                result = ejercicio01(email);
+            }
+            if (number == '02') {
+                result = ejercicio02(email);
+            }
+            if (number == '03') {
+                result = ejercicio03(email);
+            }
 
             showResults([{
-                text: 'El mayor de los tres es ',
-                value: elMayor
-            }], resultsEj01Element)
+                text: 'El resultado de la función ha sido : ',
+                value: result
+            }], resultsZone)
+        }
+
+        function pruebaEjercicioType2(number) {
+
+            var nombre = document.querySelector('#ej-02-' + number + ' input[name="name"]').value;
+            var correo = document.querySelector('#ej-02-' + number + ' input[name="email"]').value;
+            var edad = document.querySelector('#ej-02-' + number + ' input[name="age"]').value;
+
+            var persona = {
+                nombre: nombre,
+                edad: edad,
+                correo: correo
+            };
+
+            var resultsZone = document.querySelector('#ej-02-' + number + ' .results');
+            var result;
+            if (number == '04') {
+                result = ejercicio04(persona);
+            }
+            if (number == '05') {
+                result = ejercicio05(persona);
+            }
+
+            showResults([{
+                text: 'El resultado de la función ha sido : ',
+                value: result
+            }], resultsZone)
+        }
+
+        function pruebaEjercicioType3(number) {
+            var usuarios = [];
+            var items = [];
+            if (number == '06') {
+                items = ['first']
+            }
+            if (number == '07') {
+                items = ['first', 'second', 'third']
+            }
+
+            items.forEach(id => {
+
+                var nombre = document.querySelector('#ej-02-' + number + ' #' + id + ' input[name="name"]').value;
+                var correo = document.querySelector('#ej-02-' + number + ' #' + id + ' input[name="email"]').value;
+                var edad = document.querySelector('#ej-02-' + number + ' #' + id + ' input[name="age"]').value;
+
+                var persona = {
+                    nombre: nombre,
+                    edad: edad,
+                    correo: correo
+                };
+                usuarios.push(persona);
+            })
+
+
+            var resultsZone = document.querySelector('#ej-02-' + number + ' .results');
+            var result;
+            if (number == '06') {
+                result = ejercicio06(usuarios[0]);
+            }
+            if (number == '07') {
+                result = ejercicio07(usuarios);
+            }
+
+
+            showResults([{
+                text: 'El resultado de la función es. </br>',
+                value: '<pre>' + result + '</pre>'
+            }], resultsZone)
         }
 
 
@@ -516,7 +587,11 @@
 
             var resultString = '';
             results.forEach(function (result) {
-                resultString += '<p>' + result.text + '<b>' + (result.value ||  '') + '</b></p>';
+                if (result.value === false) {
+                    resultString += '<p>' + result.text + '<b>' + 'false' + '</b></p>';
+                } else {
+                    resultString += '<p>' + result.text + '<b>' + (result.value ||  '') + '</b></p>';
+                }
             });
             zone.innerHTML = resultString;
 
