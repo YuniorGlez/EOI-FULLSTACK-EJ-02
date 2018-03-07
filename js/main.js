@@ -194,13 +194,103 @@ function ejercicio05(user) {
 /////////// Zona ejercicio 6 ///////////
 ////////////////////////////////////////
 function ejercicio06(user) {
-    return user;
+    return validarUsuario(user);
+}
+
+
+var posiblesErrores = {};
+
+posiblesErrores['invalid_name'] = { code: 'invalid_name', text: 'Nombre inválido, solo se admiten letras y espacios' };
+posiblesErrores['invalid_name_empty'] = { code: 'invalid_name_empty', text: 'Nombre inválido, parece estar vacío' };
+
+posiblesErrores['invalid_email_min_length'] = { code: 'invalid_email_min_length', text: 'Email inválido, debe contener mínimo 7 letras' };
+posiblesErrores['invalid_email_max_length'] = { code: 'invalid_email_max_length', text: 'Email inválido, debe contener máximo 60 letras' };
+posiblesErrores['invalid_email_format'] = { code: 'invalid_email_format', text: 'Email inválido, el formato parece ser incorrecto' };
+
+posiblesErrores['invalid_age_min'] = { code: 'invalid_age_min', text: 'Edad incorrecta, debe ser mayor de 5 años.' };
+posiblesErrores['invalid_age_max'] = { code: 'invalid_age_max', text: 'Edad incorrecta, debe ser menor de 150 años.' };
+posiblesErrores['invalid_age_format'] = { code: 'invalid_age_format', text: 'Edad incorrecta, parece que no has introducido un número' };
+
+
+/**
+ * Esta función validará que un usuario es válido según estas reglas : 
+ *  - Valida que su nombre solo contiene letras o espacios.
+ *  - Valida que su email tiene mínimo 7 caracteres y máximo 60.
+ *  - Valida que su email contiene un @ y contenido a la izquierda y a la derecha.
+ *  - Valida que edad es superior a los 5 años y menor de 150. 
+ * @param usuario. El usuario a validar. Ha de poseer age, name y email
+
+ */
+function validarUsuario(usuario) {
+    var userErrors = [];
+    userErrors = userErrors.concat(erroresEnNombre(usuario.nombre));
+    userErrors = userErrors.concat(erroresEnEmail(usuario.correo));
+    userErrors = userErrors.concat(erroresEnEdad(usuario.edad));
+    return {
+        valid: userErrors.length === 0,
+        errors: userErrors
+    }
+}
+
+/**
+ * Valida que el nombre esta correcto
+ * @param {string} nombre Nombre del usuario a validar
+ */
+function erroresEnNombre(nombre) {
+    var copia = nombre.toLowerCase();
+    var erroresEnNombre = [];
+    if (copia.length === 0) {
+        erroresEnNombre.push(posiblesErrores['invalid_name_empty']);
+    }
+    if ( /^[a-zA-Z\s]*$/.test(copia)  === false )  {
+        erroresEnNombre.push(posiblesErrores['invalid_name']);
+    }
+    return erroresEnNombre;
+}
+
+/**
+ * Valida que su email esta correcto.
+ * @param {string} email Email del usuario a validar
+ */
+function erroresEnEmail(email) {
+    var copia = email.toLowerCase();
+    var erroresEnEmail = [];
+
+    // if (copia.length === 0 || copia.indexOf('@') <= 1 etc etc ) {
+    if (!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(copia)) {
+        erroresEnEmail.push(posiblesErrores['invalid_email_format']);
+    }
+    if (copia.length < 7) {
+        erroresEnEmail.push(posiblesErrores['invalid_email_min_length']);
+    }
+    else if (copia.length > 60) {
+        erroresEnEmail.push(posiblesErrores['invalid_email_max_length']);
+    }
+    return erroresEnEmail;
+}
+
+/**
+ * Valida que su edad es correcta
+ * @param {number} edad Edad del usuario a validar
+ */
+function erroresEnEdad(edad) {
+    var erroresEnEdad = [];
+    if (!parseInt(edad)) {
+        erroresEnEdad.push(posiblesErrores['invalid_age_format']);
+        return erroresEnEdad;
+    }
+    if (parseInt(edad) <= 5) {
+        erroresEnEdad.push(posiblesErrores['invalid_age_min']);
+    }else if (parseInt(edad) > 150) {
+        erroresEnEdad.push(posiblesErrores['invalid_age_max']);
+    }
+    return erroresEnEdad;
 }
 
 
 ////////////////////////////////////////
 /////////// Zona ejercicio 7 ///////////
 ////////////////////////////////////////
-function ejercicio06(user) {
+function ejercicio07(user) {
     return user;
 }
