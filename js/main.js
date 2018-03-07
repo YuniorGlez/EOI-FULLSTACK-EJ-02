@@ -291,6 +291,43 @@ function erroresEnEdad(edad) {
 ////////////////////////////////////////
 /////////// Zona ejercicio 7 ///////////
 ////////////////////////////////////////
-function ejercicio07(user) {
-    return user;
+/**
+ * Para los datos de las personas introducidas, implementa la función ejercicio07 para que haga lo siguiente.
+ * Esta vez recibirás un array con las tres personas. Y tu función deberá de validar cada persona por separado. En caso de que sea un usuario válido por lo que hemos definido en el ejercicio06 entonces lo guardarás dentro de un array. Antes de guardarlo en el array, le crearás el atributo id : number con un identificador único para él (usa su posición en el array incrementada en 1).
+ * @param {array[User]} users 
+ */
+function ejercicio07(usuariosNuevos) {
+    var result = {
+        items_inserted : 0,
+        ids : [],
+        with_errors : [],
+        users_stored : []
+    };
+    usuariosNuevos.forEach( function (user) { 
+        var validacionUsuario = validarUsuario(user);
+        if (validacionUsuario.valid){
+            var nuevoUsuario = Object.assign({},user);
+            if (!emailRepetido(users, nuevoUsuario)){
+                nuevoUsuario.id = users.length;
+                users.push(nuevoUsuario);
+                result.items_inserted++;
+                result.ids.push(nuevoUsuario.id);
+            }else{
+                result.with_errors.push({user : user, error : "Ya existe un usuario con dicho correo"});
+            }
+        }else{
+            result.with_errors.push({
+                user: user,
+                errors: validacionUsuario.errors
+            })
+        }
+    });
+    result.users_stored = users.slice(0);
+    return result;
 }
+
+function emailRepetido(arrayUsuarios, usuario){
+    return arrayUsuarios.some( user => user.correo.toLowerCase() === usuario.correo.toLowerCase())
+}
+
+var users = [];
