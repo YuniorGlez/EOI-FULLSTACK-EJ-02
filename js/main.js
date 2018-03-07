@@ -119,8 +119,28 @@ function cuentaNumeros(frase){
 ////////////////////////////////////////
 /////////// Zona ejercicio 4 ///////////
 ////////////////////////////////////////
+/**
+ * Implementa la función ejercicio04 para que devuelva la siguiente frase dependiendo de los datos de la persona introducida: 
+
+ * "El usuario [nombre] [no] es mayor de edad" 
+
+ * En caso de ser mayor de edad Añade al final de la frase lo siguiente : 
+
+ * "Por lo tanto, le he creado un usuario con el correo[correo]"
+ * @param {Object} user 
+ */
 function ejercicio04(user) {
-    console.log(user);
+    if (user.nombre.length <= 0 || !parseInt(user.edad) || user.correo.length <= 0){
+        return "El usuario tiene algún campo inválido";
+    }
+    var result = "El usuario " + user.nombre + " ";
+    if (parseInt(user.edad) >= 18){
+        result += "es mayor de edad.";
+        result += "\nPor lo tanto, le he creado el usuario con el correo " + user.correo;
+    }else{
+        result += "no es mayor de edad";
+    }
+    return result;
 }
 
 
