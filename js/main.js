@@ -94,7 +94,7 @@ function ejercicio03(email) {
     return result;
 }
 
-function cuentaNumeros(frase){
+function cuentaNumeros(frase) {
     if (!/\d/g.test(frase)) return 0
     else return frase.match(/\d/g).length;
 
@@ -130,14 +130,14 @@ function cuentaNumeros(frase){
  * @param {Object} user 
  */
 function ejercicio04(user) {
-    if (user.nombre.length <= 0 || !parseInt(user.edad) || user.correo.length <= 0){
+    if (user.nombre.length <= 0 ||  !parseInt(user.edad) || user.correo.length <= 0) {
         return "El usuario tiene algún campo inválido";
     }
     var result = "El usuario " + user.nombre + " ";
-    if (parseInt(user.edad) >= 18){
+    if (parseInt(user.edad) >= 18) {
         result += "es mayor de edad.";
         result += "\nPor lo tanto, le he creado el usuario con el correo " + user.correo;
-    }else{
+    } else {
         result += "no es mayor de edad";
     }
     return result;
@@ -154,8 +154,32 @@ function ejercicio04(user) {
 ////////////////////////////////////////
 /////////// Zona ejercicio 5 ///////////
 ////////////////////////////////////////
+/**
+ * Implementa la función ejercicio05 para que devuelva alguna de las siguientes frases dependiendo de los datos de la persona introducida: 
+ * "La persona introducida no es Yunior" 
+ * "La persona introducida es Yunior" 
+ * "La persona introducida pudiera ser Yunior. Ya que tiene [el mismo correo / la misma edad / el mismo nombre]"
+ * @param {Object} user 
+ */
 function ejercicio05(user) {
-    console.log(user);
+    if (user.nombre.length <= 0 ||  !parseInt(user.edad) || user.correo.length <= 0) {
+        return "El usuario tiene algún campo inválido";
+    }
+    if (user.nombre.toLowerCase() === 'yunior' && parseInt(user.edad) === 24 && user.correo.toLowerCase() === 'yunior@getinko.com') {
+        return "La persona introducida es Yunior";
+    } else if (user.nombre.toLowerCase() != 'yunior' && parseInt(user.edad) != 24 && user.correo.toLowerCase() != 'yunior@getinko.com') {
+        return "La persona introducida no es Yunior";
+    } else {
+        if (user.nombre.toLowerCase() === 'yunior') {
+            return "La persona introducida podría ser Yunior. Ya que tiene el mismo nombre";
+        }
+        if (parseInt(user.edad) === 24) {
+            return "La persona introducida podría ser Yunior. Ya que tiene la misma edad";
+        }
+        if (user.correo.toLowerCase() === 'yunior@getinko.com') {
+            return "La persona introducida podría ser Yunior. Ya que tiene el mismo correo";
+        }
+    }
 }
 
 
